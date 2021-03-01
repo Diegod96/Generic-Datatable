@@ -1,10 +1,9 @@
-import { useQuery } from '@lwce/apollo-client';
-import {LightningElement} from 'lwc';
+import {LightningElement, api} from 'lwc';
 
 export default class ObjectCombobox extends LightningElement {
 
-    value = 'Account'
-
+    @api selectedObjectValue;
+    
     get options() {
         return [{
             
@@ -31,7 +30,11 @@ export default class ObjectCombobox extends LightningElement {
     }
 
     handleChange(event) {
-        this.value = event.target.value;
-        console.log("Selcted value: " + this.value);
+        this.selectedObjectValue = event.target.value;
+        //console.log("Selcted value: " + this.selectedObjectValue);
+        const selectedEvent = new CustomEvent("objectvaluechange", {
+            detail: this.selectedObjectValue
+        });
+        this.dispatchEvent(selectedEvent);
     }
 }
