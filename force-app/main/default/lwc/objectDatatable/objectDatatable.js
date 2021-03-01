@@ -16,13 +16,10 @@ export default class ObjectDatatable extends LightningElement {
 
     @track selectedObject;
     @track records;
-    @track columns;
 
     handleObjectChange(event) {
         this.selectedObject = event.detail;
-        console.log(this.selectedObject);
+        //console.log(this.selectedObject);
     }
-
-    
 
 }
