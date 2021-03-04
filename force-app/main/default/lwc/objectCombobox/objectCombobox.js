@@ -8,23 +8,23 @@ export default class ObjectCombobox extends LightningElement {
         return [{
             
                 label: "Account",
-                value: 'account'
+                value: 'Account'
             },
             {
                 label: "Contact",
-                value: 'contact'
+                value: 'Contact'
             },
             {
                 label: "Case",
-                value: 'case'
+                value: 'Case'
             },
             {
                 label: "Lead",
-                value: 'lead'
+                value: 'Lead'
             },
             {
                 label: "Opportunity",
-                value: 'opportunity'
+                value: 'Opportunity'
             },
         ];
     }

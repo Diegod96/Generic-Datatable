@@ -10,7 +10,7 @@ public with sharing class ObjectController {
         }
     }
     public class Response {
-        @AuraEnabled public Column columns = new Column[0];
+        @AuraEnabled public Column[] columns = new Column[0];
         @AuraEnabled public sObject[] records;
     }
     @AuraEnabled(cacheable=true) public static Response getObjects(String sourceType) {

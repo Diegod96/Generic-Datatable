@@ -1,9 +1,31 @@
-<template>
+<!-- <template>
     <lightning-card title="Object Datatable" icon-name="custom:custom63">
         <div class="slds-m-around_medium">
             <c-object-combobox
                 onobjectvaluechange={handleObjectChange}
             ></c-object-combobox>
+            <lightning-datatable 
+                key-field="Id" 
+                data={records} 
+                columns={columns}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template> -->
+
+<template>
+    <lightning-card title="Datatable Example" icon-name="custom:custom63">
+        <c-object-combobox
+                onobjectvaluechange={handleObjectChange}
+        ></c-object-combobox>
+        <div class="slds-m-around_medium">
+            <template if:true={records}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={records}
+                    columns={columns}
+                ></lightning-datatable>
+            </template>
         </div>
     </lightning-card>
 </template>
