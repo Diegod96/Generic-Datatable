@@ -7,8 +7,6 @@ export default class ObjectDatatable extends LightningElement {
     @track columns;
     @track records;
  
-
-
     @wire(getObjects, { sourceType: '$selectedObject' })
     objectData({error, data}) {
         if(data){

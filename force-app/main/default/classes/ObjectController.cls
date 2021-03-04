@@ -1,11 +1,11 @@
 public with sharing class ObjectController {
     public class Column {
         @AuraEnabled public String fieldName;
-        @AuraEnabled public String fieldLabel;
+        @AuraEnabled public String label;
         @AuraEnabled public String fieldType;
         Column(String fName, String fLabel, String fType) {
             fieldName = fName;
-            fieldLabel = fLabel;
+            label = fLabel;
             fieldType = fType;
         }
     }
@@ -57,7 +57,6 @@ public with sharing class ObjectController {
                 res.records = [SELECT Name, Company, Address, Email, Status FROM Lead];
                 res.columns.add(new Column('Name', 'Name', 'text'));
                 res.columns.add(new Column('Company', 'Company', 'text'));
-                res.columns.add(new Column('Address', 'Address', 'text'));
                 res.columns.add(new Column('Email', 'Email', 'email'));
                 res.columns.add(new Column('Status', 'Status', 'text'));
             }
