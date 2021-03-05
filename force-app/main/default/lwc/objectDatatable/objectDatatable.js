@@ -1,4 +1,9 @@
 import { LightningElement, track, api, wire } from 'lwc';
+import { refreshApex } from '@salesforce/apex';
+import { updateRecord } from 'lightning/uiRecordApi';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { deleteRecord } from 'lightning/uiRecordApi';
+
 import getObjects from '@salesforce/apex/ObjectController.getObjects';
 
 export default class ObjectDatatable extends LightningElement {
@@ -6,30 +11,25 @@ export default class ObjectDatatable extends LightningElement {
     @api selectedObject;
     @track columns;
     @track records;
+    draftValues = [];
  
     @wire(getObjects, { sourceType: '$selectedObject' })
     objectData({error, data}) {
         if(data){
-            console.log("There is data");
+            //console.log("There is data");
             this.records = data.records;
             this.columns = data.columns;
-            console.log("Columns: " + JSON.stringify(this.columns));
-            console.log("Records: " + JSON.stringify(this.records));
+            //console.log("Columns: " + JSON.stringify(this.columns));
+            //console.log("Records: " + JSON.stringify(this.records));
         }else{
             this.error = error;
-            console.log("There is no data");
-            console.log("Error: " + JSON.stringify(error));
+            //console.log("There is no data");
+            //console.log("Error: " + JSON.stringify(error));
         }
     }
-    // get columns() {
-    //     return objectData && objectData.data ? objectData.data.columns : [];
-    // }
-    // get records() {
-    //     return objectData && objectData.data ? objectData.data.records : [];
-    // }
 
     handleObjectChange(event) {
         this.selectedObject = event.detail;
-        console.log(this.selectedObject);
+        //console.log(this.selectedObject);
     }
 }
